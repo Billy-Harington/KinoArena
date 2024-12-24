@@ -1,0 +1,804 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+
+
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  background: url(/Joker_BG.png)no-repeat top / contain;
+  background-color: #1E2538;
+  height: fit-content;
+  padding-bottom: 40px;
+}
+
+
+
+.header_container {
+
+
+  padding: 20px;
+  width: 1200px;
+  margin: 0 auto;
+
+
+
+}
+
+.header_menu {
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .promos {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navMenu {
+
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 21.06px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      transition: 0.3s;
+
+    }
+
+    a:hover {
+      text-shadow: 0 0 15px white;
+    }
+
+  }
+
+  .search {
+    display: flex;
+    gap: 10px;
+
+    a {
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    a:hover{
+      transform: scale(1.04);
+    }
+
+
+    button {
+      width: 138px;
+      height: 53px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      background: #3657CB;
+      box-shadow: 0px 0px 15px 0px #4871FFCC;
+      cursor: pointer;
+      transition: 0.4s;
+
+    }
+    button:hover{
+      transform: scale(1.04);
+      background-color: white;
+      color: #3657CB;
+    }
+  }
+}
+
+.newMovies {
+  width: 1200px;
+  margin: 0 auto;
+
+}
+
+.in_theaters {
+
+  width: 1200px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 55px;
+    font-weight: 900;
+    line-height: 82.81px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: white;
+  }
+
+  .new_menu {
+
+    display: flex;
+    gap: 20px;
+
+
+
+    a {
+      text-decoration: none;
+      color: rgb(117, 117, 117);
+      font-family: 'Roboto', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 21.06px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      transition: 0.3s;
+
+    }
+
+    a:hover {
+      color: white;
+      text-shadow: 0px 0px 15px white;
+    }
+
+  }
+
+
+
+}
+
+.movies_container {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  justify-content: center;
+  margin-top: 63px;
+
+  .movie {
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .movie:hover{
+    transform: scale(1.1);
+    
+    }
+   
+  
+    .movie_poster {
+      width: 280px;
+      height: 380px;
+      border-radius: 15px;
+      position: relative; /* Для правильного позиционирования вложенных элементов */
+      background: url(/movie_poster.png) no-repeat center / contain;
+      overflow: hidden; /* Чтобы обрезать содержимое псевдоэлемента и кнопки */
+      transition: 0.5s; /* Плавный переход */
+  }
+  
+  .movie_poster::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(54, 87, 203, 0); /* Прозрачный слой */
+      transition:  0.5s; /* Плавное изменение цвета */
+  }
+ 
+  
+  .movie_poster .movie_button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0); /* Скрыто и уменьшено до 0 */
+      width: 200px;
+      height: 61px;
+      border: none;
+      border-radius: 10px;
+      background-color: white;
+      color: blue;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+
+      line-height: 61px; /* Центрирование текста внутри кнопки */
+      opacity: 0; /* Скрыто изначально */
+      transition: 0.3s ease; /* Плавное появление */
+      cursor: pointer; /* Указывает, что это кнопка */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Небольшая тень для кнопки */
+  }
+  
+  .movie_poster:hover .movie_button {
+    box-shadow: 20px 20px 100px 1000px #375EE866;
+
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+  }
+  
+  .movie_rating {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    width: 50px;
+    height: 25px;
+    background-color: #89CB36;
+    border-radius: 6px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.3px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    text-align: center;
+  }
+
+
+  h1 {
+    margin: 10px 0 5px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.3px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+  p {
+    color: #F2F60F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.85px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-bottom: 10px;
+  }
+}
+
+.watch_all {
+  margin: 15px 0 0 550px;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 61px;
+  border: 2px solid #FFFFFF;
+  background: none;
+  color: white;
+  border-radius: 10px;
+  transition: 0.4s;
+
+}
+
+.watch_all:hover {
+  background-color: white;
+  color: #1E2538;
+}
+
+body {
+  position: relative;
+}
+
+dialog {
+  width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background-color: rgba(255, 255, 255, 0.100);
+  border: none;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.close_modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.search_dialog a img {
+  width: 100px;
+  /* Логотип */
+  display: block;
+  margin: 0 auto;
+}
+
+.searchInp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.searchInp input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+
+}
+
+.searchInp a svg {
+  cursor: pointer;
+}
+
+.founded_movies,
+.founded_actors {
+  margin-top: 20px;
+}
+
+.founded_movies h1,
+.founded_actors h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.founded {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1E2538;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.neccessary {
+  display: flex;
+  gap: 15px;
+}
+
+.neccessary img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie_data h1 {
+  font-size: 18px;
+  margin: 0;
+  color: white;
+}
+
+.movie_data h2 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: rgb(196, 196, 196);
+}
+
+.movie_data p {
+  font-size: 14px;
+  color: #F2F60F;
+}
+
+.f_ratings {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1e2538;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.trailer {
+  margin-top: 20px;
+  width: 1200px;
+  margin: 30px auto;
+}
+
+.new_trailers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  h1 {
+
+    font-size: 65px;
+    font-weight: 900;
+    line-height: 82.81px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    text-shadow: 0 0 15px white;
+  }
+}
+
+.data {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  .right_data {
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    h1 {
+
+      font-size: 45px;
+      font-weight: 900;
+      line-height: 57.33px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+
+    }
+  }
+
+  .left_data {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+
+    .like {
+      display: flex;
+      flex-direction: column;
+
+      p {
+
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 17.85px;
+
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+
+      }
+    }
+  }
+}
+
+.trailers_container {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* Убираем вертикальный скролл */
+  direction: rtl;
+  /* Задаём направление справа налево */
+  transform: rotate(180deg);
+  /* Переворачиваем контейнер */
+}
+
+.trailers_container .trailer {
+
+  direction: ltr;
+  /* Возвращаем текст и содержимое в нормальное направление */
+  transform: rotate(180deg);
+  /* Переворачиваем элементы обратно */
+}
+
+/* Стили для скроллбара (если нужно) */
+.trailers_container::-webkit-scrollbar {
+  height: 15px;
+}
+
+.trailers_container::-webkit-scrollbar-thumb {
+  background: #3657CB;
+
+  border-radius: 10px;
+}
+
+.trailers_container::-webkit-scrollbar-thumb:hover {
+  background: #3657CB;
+
+}
+
+
+.trailer {
+
+
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 25.48px;
+  text-align: left;
+  color: white;
+
+
+  scroll-snap-align: start;
+
+}
+
+.popular {
+  width: 1200px;
+  margin: 60px auto 0;
+}
+
+.switch_btns {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+}
+
+.popular_persons {
+  width: 1200px;
+  margin: 60px auto 0;
+
+}
+
+.people {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+._2_place {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.place {
+  background: url(/bestPoet.png)no-repeat center /cover;
+  width: 333px;
+  height: 333px;
+  border-radius: 15px;
+  position: relative;
+  padding: 5px 0;
+  display: flex;
+
+  h1 {
+    color: #F2F60F;
+    margin: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+  }
+
+  .person_data {
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+
+
+    h2 {
+      color: white;
+
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 33.45px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+
+
+    }
+
+    h3 {
+      color: #FFFFFF59;
+
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 24.46px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+
+    }
+
+    p {
+      color: #F2F60F;
+      margin: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+  }
+}
+
+.other_places {
+  width: 333px;
+  height: 333px;
+  border-radius: 50px;
+
+}
+
+.place_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.place_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e;
+  padding: 15px;
+
+  position: relative;
+  /* Для работы с псевдоэлементами */
+}
+
+.place_item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 0.9px;
+
+  background-color: #fff;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.info h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff99;
+}
+
+.info p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f2f60f;
+}
+
+.position {
+  font-size: 14px;
+  font-weight: 600;
+  color: #f2f60f;
+}
+
+
+footer {
+  background-color: #151A26;
+  padding: 30px 0 30px;
+
+}
+
+.awaited {
+  width: 1200px;
+  margin: 0 auto;
+
+  .switch_btns {
+    h1 {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24.14px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+    }
+
+  }
+}
+
+.bottom {
+  margin:60px 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
+
+  img {
+    width: 261px;
+  }
+
+  .navMenu {
+
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 21.06px;
+      text-align: left;
+      text-underline-position: from-font;
+      text-decoration-skip-ink: none;
+      transition: 0.3s;
+
+    }
+
+    a:hover {
+      text-shadow: 0 0 15px white;
+    }
+
+  }
+
+  h2 {
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.85px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #E3E6F0B8;
+  }
+
+  a {
+    text-decoration: none;
+   
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.85px;
+    text-align: center;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #E3E6F0B8;
+    transition: 0.4s;
+  }
+  a:hover{
+    color: white;
+    text-shadow: 0 0 15px white;
+  }
+}
