@@ -1,13 +1,19 @@
 import { ReloadProps } from "./types"
 
 
-export function reload({ arr, commponent, place }: ReloadProps) {
-    place.innerHTML = ""
-
+export const reload = <T>({ arr, commponent, place }: ReloadProps<T>): void => {
+    place.innerHTML = ""; 
+    
+   
+    
     for (const item of arr) {
-        const elem: HTMLElement = commponent(item)
+        
+             const element = commponent(item);
+             
+             
+             place.appendChild(element); 
+         };
+    
+};
 
-        place.append(elem)
-    }
-}
 
