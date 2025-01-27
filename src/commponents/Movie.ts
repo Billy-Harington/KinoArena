@@ -39,7 +39,7 @@ export function Movie(item: MovieType) {
         const movieId = item.id
         console.log(movieId);
         
-        location.assign(`src/pages/movie_page/?id=${movieId}`)
+        location.assign(`/src/pages/movie_page/?id=${movieId}`)
     }
 
     return movie

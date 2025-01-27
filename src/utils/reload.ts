@@ -11,7 +11,7 @@ export const reload = <T>({ arr, commponent, place }: ReloadProps<T>): void => {
              const element = commponent(item);
              
              
-             place.appendChild(element); 
+             place.append(element); 
          };
     
 };

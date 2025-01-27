@@ -12,6 +12,13 @@ img.src = `${import.meta.env.VITE_PUBLIC_BASE_POSTER_URL + item.profile_path}`
 h1.innerText = item.name
 p.innerText = item.character
 
+
+actor.onclick = () => {
+    const movieId = item.id
+    console.log(movieId);
+    
+    location.assign(`/src/pages/actor_page/?id=${movieId}`)
+}
 actor.append(img,h1,p)
 
 return actor

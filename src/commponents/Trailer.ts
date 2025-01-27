@@ -17,7 +17,7 @@ export function Trailer(movie:MovieType) {
         const apiCall = new ApiClient(import.meta.env.VITE_PUBLIC_BASE_URL)
         const videos = await apiCall.read(`movie/${movie.id}/videos`) as any
 
-        const trailer = videos.results.find((item) => item.type === "Trailer")
+        const trailer = videos.results.find((item:any) => item.type === "Trailer")
         const iframe = document.querySelector('iframe') as any
         const title =  document.querySelector('#trailer_title') as any
         iframe.src = `https://www.youtube.com/embed/${trailer.key}`
